@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=prisma_user
+      - POSTGRESQL_PASSWORD=prisma_pass
+      - POSTGRESQL_DATABASE=prisma_db
+    volumes:
+      - postgres_data:/bitnami/postgresql
+
+volumes:
+  postgres_data:
